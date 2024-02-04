@@ -2,11 +2,6 @@
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
 
-// int64_t alarm_callback(alarm_id_t id, void *user_data) {
-//     // Put your timeout handler code in here
-//     return 0;
-// }
-
 repeating_timer_t rpt1000;
 repeating_timer_t rpt1011;
 repeating_timer_t rpt1017;
@@ -42,9 +37,6 @@ bool callback_e(repeating_timer_t *rt)
 int main()
 {
     stdio_init_all();
-
-    // // Timer example code - This example fires off the callback after 2000ms
-    // add_alarm_in_ms(2000, alarm_callback, NULL, false);
 
     sleep_ms(1000);
     puts("Hello, world!");
