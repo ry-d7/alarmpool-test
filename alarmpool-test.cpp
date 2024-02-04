@@ -2,11 +2,11 @@
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
 
-repeating_timer_t rpt1000;
-repeating_timer_t rpt1011;
-repeating_timer_t rpt1017;
-repeating_timer_t rpt1029;
-repeating_timer_t rpt1063;
+repeating_timer_t rpt_a;
+repeating_timer_t rpt_b;
+repeating_timer_t rpt_c;
+repeating_timer_t rpt_d;
+repeating_timer_t rpt_e;
 
 bool callback_a(repeating_timer_t *rt)
 {
@@ -44,11 +44,11 @@ int main()
 
     // auto ap = alarm_pool_create_with_unused_hardware_alarm(4); // this will block the timer E below
     auto ap = alarm_pool_create_with_unused_hardware_alarm(8);
-    alarm_pool_add_repeating_timer_ms(ap, -1000, callback_a, nullptr, &rpt1000); // A
-    alarm_pool_add_repeating_timer_ms(ap, -1011, callback_b, nullptr, &rpt1011); // B
-    alarm_pool_add_repeating_timer_ms(ap, -1017, callback_c, nullptr, &rpt1017); // C
-    alarm_pool_add_repeating_timer_ms(ap, -1029, callback_d, nullptr, &rpt1029); // D
-    alarm_pool_add_repeating_timer_ms(ap, -1063, callback_e, nullptr, &rpt1063); // E
+    alarm_pool_add_repeating_timer_ms(ap, -1000, callback_a, nullptr, &rpt_a); // A
+    alarm_pool_add_repeating_timer_ms(ap, -1011, callback_b, nullptr, &rpt_b); // B
+    alarm_pool_add_repeating_timer_ms(ap, -1017, callback_c, nullptr, &rpt_c); // C
+    alarm_pool_add_repeating_timer_ms(ap, -1029, callback_d, nullptr, &rpt_d); // D
+    alarm_pool_add_repeating_timer_ms(ap, -1063, callback_e, nullptr, &rpt_e); // E
 
     while (true) {
 
